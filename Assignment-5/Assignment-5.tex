@@ -188,9 +188,8 @@ where:
 \eqref{eq:5}
 can then be expressed as:
 \begin{align}
-\label{eq:7}
 \myvec{\vec{p}^T\vec{P}\\ \vec{q}^T\vec{Q}}\vec{d} &= \myvec{1\\1}\\
-\myvec{16 & 9\\ 1 & 16}\vec{d} &= \myvec{1\\1}
+\myvec{16 & 9\\ 1 & 16}\vec{d} &= \myvec{1\\1}\label{eq:8}
 \end{align}
 Forming the augmented matrix and performing row reduction,
 \begin{align}
@@ -210,11 +209,6 @@ So, equation of ellipse is given by:
 \end{align}
 
 
-
-Replacing $\vec{x}$ by $\myvec{x\\y}$ in \eqref{eq:12} gives:
-\begin{align}
-7x^2+15y^2=247
-\end{align}
 The ellipse parameters center and axes are obtained from conics table in manual as
 \begin{align}
 \vec{c} = \vec{0};
@@ -222,5 +216,24 @@ The ellipse parameters center and axes are obtained from conics table in manual 
 \frac{1}{\sqrt{\lambda_2}}  = \sqrt{\frac{247}{15}}.
 \end{align}
 
+If standard ellipse is not considered and center is taken anywhere on x axis i.e
+$\vec{c}=\myvec{\beta\\0}$ infinite ellipses are possible.
+Once we fix $\beta$,let
+\begin{align}
+\vec{p} = \myvec{4-\beta\\3} , \vec{q} = \myvec{– 1-\beta\\4}
+\end{align}
+Then $\vec{p}$,$\vec{q}$ will again satisfy \eqref{eq:2}.
+Proceeding in a similar manner \eqref{eq:8} becomes:
+\begin{align}
+\myvec{(4-\beta)^2 & 9\\ (-1-\beta)^2 & 16}\vec{d} &= \myvec{1\\1}
+\end{align}
+This matrix equation can be solved for different values of $\beta$ to find $\lambda_1$ and $\lambda_2$ which are both positive and also satisfying the constraint  that X-axis is the major axis.This was done using python and some ellipses are shown in  \ref{fig:ellipses}
 
+\numberwithin{figure}{section}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{figure5_1}
+\caption{Ellipses passing through the two points with X axis as major axis}
+\label{fig:ellipses}	
+\end{figure}
 \end{document}
