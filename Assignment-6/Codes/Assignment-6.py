@@ -97,8 +97,8 @@ plt.plot(x_AB[0,:],x_AB[1,:],label='Tangent1')
 plt.plot(x_BC[0,:],x_BC[1,:],label='Tangent2')
 
 #Plotting the eigen hyperbola
-plt.plot(xeigenHyperLeft[0,:],xeigenHyperLeft[1,:],label='Standard hyperbola',color='b')
-plt.plot(xeigenHyperRight[0,:],xeigenHyperRight[1,:],color='b')
+#plt.plot(xeigenHyperLeft[0,:],xeigenHyperLeft[1,:],label='Standard hyperbola',color='b')
+#plt.plot(xeigenHyperRight[0,:],xeigenHyperRight[1,:],color='b')
 
 #Plotting the actual hyperbola
 plt.plot(xActualHyperLeft[0,:],xActualHyperLeft[1,:],label='Actual hyperbola',color='m')
