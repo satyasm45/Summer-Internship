@@ -193,19 +193,59 @@ The acceleration of a body under the influence of gravity is given by:
         \vec{F}_{c}=\myvec{0\\-0.98}
         \end{align}
     The magnitude of force is 0.98N and direction is vertically downwards.
-    \item The acceleration of stone will be same as the train.Hence,the force:
+    \numberwithin{figure}{section}
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\columnwidth]{figure7}
+    \caption{The Force vectors }
+    \label{fig:vectors}	
+    \end{figure}
+    \item The acceleration of stone will be same as the train.Hence,two possible values of force:
     \begin{align}
         m=0.1,
-        \norm{\vec{a}}=1\\
-        \vec{F}_{d}=0.1\times\vec{a}
+        \vec{a}=\myvec{1\\0},\myvec{-1\\0}\\
+        \vec{F}_{d}=\myvec{0.1\\0},\myvec{-0,1\\0}
         \end{align}
     $\therefore$ magnitude of force is 0.1N and direction is along the direction of motion of train.
 \end{enumerate}
+
+\section{Appendix}
+For (c) let us assume height from ground is 'h' and the instantaneous velocity of train is $\vec{v}=\myvec{v\\0}$.Just after ball is dropped,from the ground frame of reference the ball has initial velocity $\vec{v}$ and:
+\begin{align}
+    \vec{a}=\vec{g}=\myvec{0\\-9.8}
+\end{align}
+This is because as soon as the ball loses contact with the train its horizontal acceleration due to train becomes zero.
+If $\vec{X}$ is instantaneous position of ball:
+\begin{align}
+    \vec{X}=\myvec{0\\h}+\vec{v}t+\frac{1}{2}\vec{g}t^2\\
+    \vec{X}=\myvec{0\\h}+\myvec{v\\0}t+\frac{1}{2}\myvec{0\\-9.8}t^2\label{eq:tr1}
+\end{align}
+Assuming h=490m and v=1.5m/s and using \eqref{eq:tr1} the motion of ball as seen by an observer from ground found out by  varying 't' is given as  :
 \numberwithin{figure}{section}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\columnwidth]{figure7}
-\caption{The Force vectors }
+\includegraphics[width=\columnwidth]{figure7_1}
+\caption{Motion as seen from ground }
 \label{fig:vectors}	
 \end{figure}
+\linebreak From the train frame of reference,let $\vec{a_t}$ be acceleration of train w.r.t ground  $\vec{a_r}$ be the relative acceleration of ball w.r.t to train,and let $\vec{v_r}$ be the relative velocity of ball w.r.t to train:
+\begin{align}
+    \vec{a_r}=\vec{g}-\vec{a_t}=\vec{g}-\myvec{1\\0}=\myvec{-1\\-9.8}\\
+    \vec{v_r}=0
+\end{align}
+If $\vec{X}$ is instantaneous position of ball from train frame of reference:
+\begin{align}
+    \vec{X}=\vec{v_r}t+\frac{1}{2}\vec{a_r}t^2\\
+    \vec{X}=\frac{1}{2}\myvec{-1\\-9.8}t^2\label{eq:tr2}
+\end{align}
+
+Assuming h=500m and using \eqref{eq:tr1} the motion of ball as seen by an observer from train found out by  varying 't' is given as:
+\numberwithin{figure}{section}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{figure7_2}
+\caption{Motion as seen from train }
+\label{fig:vectors}	
+\end{figure}
+\linebreak Similar trajectories can be found out for the case $\vec{a}=\myvec{-1\\0}$
 \end{document}
