@@ -22,10 +22,28 @@ points = np.array([[0, 0], [0, 9],[9, 0]])
 #Transformed axes
 affine_points = np.linalg.inv(affine)@(c+points).T
 affine_points = affine_points.T
+#print(affine_points[0][1])
 
 plt.figure(0)
 #Filling up the desired region
 plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3,label="pair1")
+
+#Line vertices
+P = np.array([affine_points[0][0],affine_points[0][1]]) 
+Q = np.array([0,3]) 
+R = np.array([5,1]) 
+
+
+#Generating all lines
+x_PQ = line_gen(P,Q)
+x_PR = line_gen(P,R)
+
+#Plotting all lines
+plt.plot(x_PQ[0,:],x_PQ[1,:],label='$3x+4y=12$')
+plt.plot(x_PR[0,:],x_PR[1,:],label='$x-2y=3$')
+
+
+
 
 plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
@@ -66,6 +84,20 @@ affine_points = affine_points.T
 #Filling up the desired region
 plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3,label="pair1")
 
+#Line vertices
+P = np.array([affine_points[0][0],affine_points[0][1]]) 
+Q = np.array([0,3]) 
+R = np.array([5,1]) 
+
+
+#Generating all lines
+x_PQ = line_gen(P,Q)
+x_PR = line_gen(P,R)
+
+#Plotting all lines
+plt.plot(x_PQ[0,:],x_PQ[1,:],label='$3x+4y=12$')
+plt.plot(x_PR[0,:],x_PR[1,:],label='$x-2y=3$')
+
 affine = np.array(([1,0],[0,1]))
 c =  np.array([0,1])
 
@@ -76,9 +108,23 @@ points = np.array([[0, 0], [0, 6],[6,6 ],[6,0]])
 affine_points = np.linalg.inv(affine)@(c+points).T
 affine_points = affine_points.T
 
+
+
 #Filling up the desired region
 plt.fill(affine_points[:,0], affine_points[:,1], 'r', alpha=0.3,label="pair2")
 
+#plotting intersection point
+plt.plot(0,3,'o')
+plt.text(-0.7,2.6,"A(0,3)")
+
+plt.plot(8/3,1,'o')
+plt.text(8/3,1.1,"B(8/3,1)")
+
+plt.plot(5,1,'o')
+plt.text(5,0.7,"C (5,1)")
+
+plt.plot(3.6,0.3,'o')
+plt.text(1.8,0.3,"D (3.6,0.3)")
 #show plot
 plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
