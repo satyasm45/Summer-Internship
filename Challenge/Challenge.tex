@@ -124,7 +124,7 @@ columns=fullflexible
      \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
      \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 \vspace{3cm}
-\title{Challenge Problem 1}
+\title{Challenge Problem 5}
 \author{Satya Sangram Mishra}
 \maketitle
 \newpage
@@ -133,35 +133,68 @@ columns=fullflexible
 \renewcommand{\thetable}{\theenumi}
 Download all python codes from 
 \begin{lstlisting}
-https://github.com/satyasm45/Summer-Internship/tree/main/Challenge/Codes
+https://github.com/satyasm45/Summer-Internship/tree/main/Challenge5/Codes
 \end{lstlisting}
 %
 and latex-tikz codes from 
 %
 \begin{lstlisting}
-https://github.com/satyasm45/Summer-Internship/tree/main/Challenge
+https://github.com/satyasm45/Summer-Internship/tree/main/Challenge5
 \end{lstlisting}
 %
-\section{Challenge Question 1}
-Show that the matrix $(t\vec{I}-\vec{n}\vec{n}^T)$ in the given document is a rank 1 matrix for a parabola where t=$\norm{\vec{n}}^2$
-.
+\section{Challenge Question 5}
+Express the axis of a parabola in terms of $\vec{V}$,$\vec{u}$,f in general.
 %
 \section{Explanation}
-Given :
+We have seen in earlier assignment that the equation for parabola having focus $\vec{F}$ and directrix $\vec{n}^T\vec{x}=c$ assuming $\lambda=\norm{\vec{n}}^2$ will be: 
 \begin{align}
-    \vec{V} = (t\vec{I}-\vec{n}\vec{n}^T) 
+\vec{x}^T(\lambda\vec{I}-\vec{n}\vec{n}^T)\vec{x}+2(c\vec{n}-\lambda\vec{F})^T\vec{x}+\lambda\norm{\vec{F}}^2-c^2&=0\label{eq:8}
 \end{align}
-where t=$\norm{\vec{n}}^2$.
-Now $\vec{V}$ is a $2\times2$ matrix.Using Rank-Nullity theorem:
-Rank($\vec{V}$)+Nullity($\vec{V}$)=2
+
+Comparing with standard equation 
 \begin{align}
-  \vec{V}\neq\vec{0}\label{eq:2}\\
-  \mydet{\vec{V}}=0\label{eq:3}
+\vec{V}=\lambda\vec{I}-\vec{n}\vec{n}^T\\
+\vec{u}=c\vec{n}-\lambda\vec{F}\\
+f=\lambda\norm{\vec{F}}^2-c^2
 \end{align}
-\eqref{eq:2} indicates Rank($\vec{V}$)$\neq0$ and \eqref{eq:3} indicates Nullity($\vec{V}$)$\neq0$ .So, Rank($\vec{V}$)=Nullity($\vec{V}$)=1 for parabola.For other conics:
+Now we have
 \begin{align}
- t=\frac{\norm{\vec{n}}^2}{e^2}\\
- \mydet{\vec{V}}\neq0\label{eq:5}
+    \lambda\vec{I}-\vec{n}\vec{n}^T=\vec{V}\\
+    \vec{n}^T\norm{\vec{n}}^2\vec{I}-\vec{n}^T\vec{n}\vec{n}^T=\vec{n}^T\vec{V}\\
+    \norm{\vec{n}}^2(\vec{n}^T-\vec{n}^T)=\vec{n}^T\vec{V}\\
+    \vec{n}^T\vec{V}=0
 \end{align}
-\eqref{eq:5} indicates Nullity($\vec{V}$)=0 as $\vec{V}$ is invertible.So,for conics other than parabola Rank($\vec{V}$)=2.
+Let:
+\begin{align}
+    \vec{V}=\myvec{\vec{v_1}&\vec{v_2}}\\
+    \implies\vec{n}^T\vec{v_1}=0,\vec{n}^T\vec{v_2}=0
+\end{align}
+It is also known that atleast one of $\vec{v_1},\vec{v_2}\neq\myvec{0\\0}$. WLOG let $\vec{v_1}\neq\myvec{0\\0}$
+The axis of parabola is perpendicular to directrix.
+$\therefore$ normal of axis is given as $\vec{v_1}$.
+The axis passes through focus,so equation of axis is:
+\begin{align}
+    \vec{v_1}^T\vec{x}=\vec{v_1}^T\vec{F}\label{eq:1}
+\end{align}
+We have:
+\begin{align}
+  c\vec{n}-\lambda\vec{F}=\vec{u}\\
+  c\vec{n}^T-\lambda\vec{F}^T=\vec{u}^T\\
+  c\vec{n}^T\vec{V}-\lambda\vec{F}^T\vec{V}=\vec{u}^T\vec{V}\\
+  0-\lambda\vec{F}^T\vec{V}=\vec{u}^T\vec{V}\\
+  -\lambda\myvec{\vec{F}^T\vec{v_1}&\vec{F}^T\vec{v_2}}=  \myvec{\vec{u}^T\vec{v_1}&\vec{u}^T\vec{v_2}}\\
+  \vec{v_1}^T\vec{F}=-\frac{\vec{u}^T\vec{v_1}}{\lambda}\label{eq:2}
+\end{align}
+Also
+\begin{align}
+    \lambda\vec{I}-\vec{n}\vec{n}^T=\vec{V}\\
+    \lambda\vec{V}-\vec{n}\vec{n}^T\vec{V}=\vec{V}^2\\
+    \lambda\vec{V}=\vec{V}^2\label{eq:3}
+\end{align}
+From \ref{eq:1},\ref{eq:2} and \ref{eq:3} the equation of axis is given by:
+\begin{align}
+    \vec{v_1}^T\vec{x}=-\frac{\vec{u}^T\vec{v_1}}{\lambda}\\
+    \text{where ,}\lambda\vec{V}=\vec{V}^2
+\end{align}
+It is interesting to note that equation is independent of 'f'.
 \end{document}
