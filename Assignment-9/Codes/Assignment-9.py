@@ -12,7 +12,6 @@ Original file is located at
 import matplotlib.pyplot as plt
 from coeffs import *
 import numpy as np
-
 affine = np.array(([-1,2],[3,4]))
 c =  np.array([-3,12])
 
@@ -74,7 +73,7 @@ affine = np.array(([-1,2],[3,4]))
 c =  np.array([-3,12])
 
 #Original axes
-points = np.array([[0, 0], [0, 15],[15, 0]])
+points = np.array([[0, 0], [0, 30],[30, 0]])
 
 #Transformed axes
 affine_points = np.linalg.inv(affine)@(c+points).T
@@ -82,21 +81,25 @@ affine_points = affine_points.T
 
 
 #Filling up the desired region
-plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3,label="pair1")
+plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3)
 
 #Line vertices
-P = np.array([affine_points[0][0],affine_points[0][1]]) 
+P = np.array([8/3,1]) 
 Q = np.array([0,3]) 
 R = np.array([5,1]) 
-
+S=np.array([0,5])
+T=np.array([6,1.5])
 
 #Generating all lines
 x_PQ = line_gen(P,Q)
 x_PR = line_gen(P,R)
-
+x_QS=line_gen(Q,S)
+x_RT=line_gen(R,T)
 #Plotting all lines
 plt.plot(x_PQ[0,:],x_PQ[1,:],label='$3x+4y=12$')
-plt.plot(x_PR[0,:],x_PR[1,:],label='$x-2y=3$')
+plt.plot(x_PR[0,:],x_PR[1,:],label='$x=1$')
+plt.plot(x_QS[0,:],x_QS[1,:],label='$x=0$')
+plt.plot(x_RT[0,:],x_RT[1,:],label='$x-2y=3$')
 
 affine = np.array(([1,0],[0,1]))
 c =  np.array([0,1])
@@ -111,7 +114,7 @@ affine_points = affine_points.T
 
 
 #Filling up the desired region
-plt.fill(affine_points[:,0], affine_points[:,1], 'r', alpha=0.3,label="pair2")
+plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3)
 
 #plotting intersection point
 plt.plot(0,3,'o')
@@ -123,8 +126,9 @@ plt.text(8/3,1.1,"B(8/3,1)")
 plt.plot(5,1,'o')
 plt.text(5,0.7,"C (5,1)")
 
-plt.plot(3.6,0.3,'o')
-plt.text(1.8,0.3,"D (3.6,0.3)")
+plt.ylim(0,4.5)
+plt.xlim(-1,6)
+
 #show plot
 plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
