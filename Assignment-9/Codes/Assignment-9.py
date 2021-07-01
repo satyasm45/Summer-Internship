@@ -15,6 +15,9 @@ import numpy as np
 affine = np.array(([-1,2],[3,4]))
 c =  np.array([-3,12])
 
+ffine = np.array(([-1,2],[3,4]))
+c =  np.array([-3,12])
+
 #Original axes
 points = np.array([[0, 0], [0, 9],[9, 0]])
 
@@ -25,7 +28,7 @@ affine_points = affine_points.T
 
 plt.figure(0)
 #Filling up the desired region
-plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3,label="pair1")
+plt.fill(affine_points[:,0], affine_points[:,1], 'r', alpha=0.3,label="pair1")
 
 #Line vertices
 P = np.array([affine_points[0][0],affine_points[0][1]]) 
@@ -49,6 +52,7 @@ plt.legend(loc='best')
 plt.grid()
 
 
+
 affine = np.array(([1,0],[0,1]))
 c =  np.array([0,1])
 
@@ -68,62 +72,56 @@ plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
 
+
 plt.figure(2)
-affine = np.array(([-1,2],[3,4]))
-c =  np.array([-3,12])
+#Line Parameters
+n1 = np.array([3,4])
+n2 = np.array([1,-2])
+n3 = np.array([1,0])
+n4=np.array([0,1])
 
-#Original axes
-points = np.array([[0, 0], [0, 30],[30, 0]])
-
-#Transformed axes
-affine_points = np.linalg.inv(affine)@(c+points).T
-affine_points = affine_points.T
+c1 = 12
+c2 = 3
+c3 = 0
+c4=1
 
 
-#Filling up the desired region
-plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3)
 
-#Line vertices
-P = np.array([8/3,1]) 
-Q = np.array([0,3]) 
-R = np.array([5,1]) 
-S=np.array([0,5])
-T=np.array([6,1.5])
+#Polygon vertices
+A=line_intersect(n1,c1,n3,c3)
+B=line_intersect(n1,c1,n4,c4)
+C=line_intersect(n2,c2,n4,c4)
+P=np.array([0,5])
+Q=np.array([6,1.5])
+R=np.array([6,4.5])
+
 
 #Generating all lines
-x_PQ = line_gen(P,Q)
-x_PR = line_gen(P,R)
-x_QS=line_gen(Q,S)
-x_RT=line_gen(R,T)
+x_AB = line_gen(A,B)
+x_BC = line_gen(B,C)
+x_AP=line_gen(A,P)
+x_CQ=line_gen(C,Q)
 #Plotting all lines
-plt.plot(x_PQ[0,:],x_PQ[1,:],label='$3x+4y=12$')
-plt.plot(x_PR[0,:],x_PR[1,:],label='$x=1$')
-plt.plot(x_QS[0,:],x_QS[1,:],label='$x=0$')
-plt.plot(x_RT[0,:],x_RT[1,:],label='$x-2y=3$')
+plt.plot(x_AB[0,:],x_AB[1,:],label='$3x+4y=12$')
+plt.plot(x_BC[0,:],x_BC[1,:],'m',label='$y=1$')
+plt.plot(x_AP[0,:],x_AP[1,:],'c',label='$x=0$')
+plt.plot(x_CQ[0,:],x_CQ[1,:],'k',label='$x-2y=3$')
 
-affine = np.array(([1,0],[0,1]))
-c =  np.array([0,1])
-
-#Original axes
-points = np.array([[0, 0], [0, 6],[6,6 ],[6,0]])
-
-#Transformed axes
-affine_points = np.linalg.inv(affine)@(c+points).T
-affine_points = affine_points.T
-
-
+points = np.array((P,A,B,C,T,U))
 
 #Filling up the desired region
-plt.fill(affine_points[:,0], affine_points[:,1], 'k', alpha=0.3)
+plt.fill(points[:,0], points[:,1], 'r', alpha=0.5)
+
+
 
 #plotting intersection point
-plt.plot(0,3,'o')
+plt.plot(A[0],A[1],'o')
 plt.text(-0.7,2.6,"A(0,3)")
 
-plt.plot(8/3,1,'o')
-plt.text(8/3,1.1,"B(8/3,1)")
+plt.plot(B[0],B[1],'o')
+plt.text(8/3-1,0.8,"B(8/3,1)")
 
-plt.plot(5,1,'o')
+plt.plot(C[0],C[1],'o')
 plt.text(5,0.7,"C (5,1)")
 
 plt.ylim(0,4.5)
