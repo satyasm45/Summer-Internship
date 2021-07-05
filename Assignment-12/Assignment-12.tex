@@ -133,36 +133,36 @@ in green is tossed. Let A be the event,
 ’the number is red’. Are A and B independent ?
 \section{Solution}
 \begin{lemma}
-Two events A and B are said to be independent if and only if P(A $\cap$ B)=P(A)P(B). \label{l1}
+Two events A and B are said to be independent if and only if P(AB)=P(A)P(B). \label{l1}
 \end{lemma} 
-The description of events is given in table \ref{tab:table1}
+When a die is thrown the possibilities are
+$S=\{1,2,3,4,5,6\}$.Based on this the description of events are given in table \ref{tab:table1}
 \numberwithin{table}{section}
 \begin{table}[!ht]
 \centering
 \resizebox{\columnwidth}{!}{\begin{tabular}{|c|c|} 
 \hline
-Events & Description                         \\ \hline
-A      & The Number appearing on die is even\\ \hline
-B      & The Number appearing on die is marked in red.            \\ \hline
-A $\cap$ B & Number appearing is even and marked in red \\ \hline
+
+Event & Description                         \\ \hline
+A      &A=\{2,4,6\} \\ \hline
+B      & B=\{1,2,3\}            \\ \hline
+AB & AB=\{2\} \\ \hline
 \end{tabular}}
 \caption{Description of Events}
 \label{tab:table1}
 \end{table}
 
 
-When a die is thrown the possibilities are
-$S=\{1,2,3,4,5,6\}$ and for the events $A$
-and $B$ we have,
+The probabilities of the various events are as follows.
 \begin{align}
-    A = \{2,4,6\} \implies  P(A) = \frac{1}{2} \\
-    B = \{1,2,3\} \implies P(B) = \frac{1}{2} \\
-    A\cap B = \{2\} \implies P(A\cap B) = \frac{1}{6}\\
+    P(A) = \frac{1}{2} \\
+    P(B) = \frac{1}{2} \\
+    P(AB) = \frac{1}{6}\\
      P(A)\times P(B) = \frac{1}{4}
 \end{align}
 Now to check whether the events are independent we use Lemma \ref{l1}
 \begin{align}
-    P(A)\times P(B) \neq P(A\cap B)
+    P(A)\times P(B) \neq P(AB)
 \end{align}
 Thus A and B are not independent.
 \end{document}
